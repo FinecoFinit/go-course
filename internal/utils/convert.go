@@ -19,11 +19,11 @@ mainLoop:
 	for {
 		var currency decimal.Decimal
 
-		println("Enter value and currency(USD, EUR), example: 1 USD or 1 EUR: ")
+		fmt.Println("Enter value and currency(USD, EUR), example: 1 USD or 1 EUR: ")
 		reader := bufio.NewReader(os.Stdin)
 		input, err := reader.ReadString('\n')
 		if err != nil {
-			print(fmt.Errorf("error reading input: %w", err))
+			fmt.Print(fmt.Errorf("error reading input: %w", err))
 			break
 		}
 		input = strings.TrimSpace(input)
@@ -36,7 +36,7 @@ mainLoop:
 			}
 			return false
 		}(strings.Split(input, " ")[0]) {
-			println("error converting input (value):", strings.Split(input, " ")[0])
+			fmt.Println("error converting input (value):", strings.Split(input, " ")[0])
 			break
 		}
 
@@ -48,11 +48,9 @@ mainLoop:
 		case "EUR":
 			currency, _ = decimal.NewFromString(EUR)
 		default:
-			println("error converting input to decimal (wrong currency):", strings.Split(input, " ")[1])
+			fmt.Println("error converting input to decimal (wrong currency):", strings.Split(input, " ")[1])
 			continue mainLoop
 		}
-
-		output := value.Mul(currency).IntPart()
-		println(output, "KZT")
+		fmt.Println(value.Mul(currency), "KZT")
 	}
 }
