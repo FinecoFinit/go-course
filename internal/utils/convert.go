@@ -42,7 +42,7 @@ mainLoop:
 
 		value, _ := decimal.NewFromString(strings.Split(input, " ")[0])
 
-		switch strings.Split(strings.TrimSpace(input), " ")[1] {
+		switch strings.Split(input, " ")[1] {
 		case "USD":
 			currency, _ = decimal.NewFromString(USD)
 		case "EUR":
