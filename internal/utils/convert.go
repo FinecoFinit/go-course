@@ -24,7 +24,7 @@ mainLoop:
 		input, err := reader.ReadString('\n')
 		if err != nil {
 			fmt.Print(fmt.Errorf("error reading input: %w", err))
-			break
+			continue
 		}
 		input = strings.TrimSpace(input)
 
@@ -37,7 +37,7 @@ mainLoop:
 			return false
 		}(strings.Split(input, " ")[0]) {
 			fmt.Println("error converting input (value):", strings.Split(input, " ")[0])
-			break
+			continue
 		}
 
 		value, _ := decimal.NewFromString(strings.Split(input, " ")[0])
