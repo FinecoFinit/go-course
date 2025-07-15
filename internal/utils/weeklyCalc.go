@@ -20,13 +20,13 @@ func WeeklyCalc() {
 		{7: decimal.NewFromFloat(-523.33)},
 	}
 	for _, t := range transactions {
-		for key, val := range t {
-			fmt.Println(time.Weekday(func(val int) int {
-				if val == 7 {
+		for day, val := range t {
+			fmt.Println(time.Weekday(func(day int) int {
+				if day == 7 {
 					return 0
 				}
-				return val
-			}(key)).String())
+				return day
+			}(day)).String())
 			if val.IsNegative() {
 				fmt.Println("Withdrawal:", strings.Trim(val.String(), "-"), "\n")
 			} else {
