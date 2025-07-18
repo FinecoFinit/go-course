@@ -27,6 +27,11 @@ func Convert() {
 		}
 		input = strings.TrimSpace(input)
 
+		if len(strings.Split(input, " ")) != 2 {
+			fmt.Println("invalid input:", input)
+			continue
+		}
+
 		if func(str string) bool {
 			for _, r := range str {
 				if unicode.IsLetter(r) {
