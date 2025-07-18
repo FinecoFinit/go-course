@@ -22,7 +22,7 @@ func Convert() {
 		reader := bufio.NewReader(os.Stdin)
 		input, err := reader.ReadString('\n')
 		if err != nil {
-			fmt.Print(fmt.Errorf("error reading input: %w", err))
+			fmt.Println(fmt.Errorf("error reading input: %w", err))
 			continue
 		}
 		input = strings.TrimSpace(input)
