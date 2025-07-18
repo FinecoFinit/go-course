@@ -15,7 +15,6 @@ const (
 )
 
 func Convert() {
-mainLoop:
 	for {
 		var currency decimal.Decimal
 
@@ -49,7 +48,7 @@ mainLoop:
 			currency, _ = decimal.NewFromString(EUR)
 		default:
 			fmt.Println("error converting input to decimal (wrong currency):", strings.Split(input, " ")[1])
-			continue mainLoop
+			continue
 		}
 		fmt.Println(value.Mul(currency), "KZT")
 	}
